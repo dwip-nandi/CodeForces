@@ -1,47 +1,53 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void codeN() {
+// Function to sort the map by its second value
+bool sortBySecond(const pair<int, int> &a, const pair<int, int> &b)
+{
+    return a.second < b.second;
+}
+
+int main()
+{
     int t;
     cin >> t;
-    while (t--) {
+    while (t--)
+    {
         int n, k;
         cin >> n >> k;
         vector<int> a(n);
-        unordered_map<int, int> m;
-        for (int i = 0; i < n; i++) {
+        map<int, int> freq;
+        for (int i = 0; i < n; i++)
+        {
             cin >> a[i];
-            m[a[i]]++;
+            freq[a[i]]++;
         }
 
-        vector<int> counts;
-        for (const auto &p : m) {
-            counts.push_back(p.second);
-        }
-        sort(counts.begin(), counts.end());
-        
-        if (k == n) {
+        // Create a vector of pairs and copy the map elements into it
+        vector<pair<int, int>> vec(freq.begin(), freq.end());
+
+        // Sort the vector by the second value
+        sort(vec.begin(), vec.end(), sortBySecond);
+
+        int na = vec.size();
+        if (n == k)
             cout << 1 << endl;
-        } else if (k == 0) {
-            cout << counts.size() << endl;
-        } else {
-            int bs = counts.size();
-            for (int i = 0; i < counts.size() && k > 0; ++i) {
-                if (counts[i] <= k) {
-                    k -= counts[i];
-                    bs--;
-                } else {
-                    break;
+        else
+        {
+            for (auto &entry : vec)
+            {
+                if (entry.second <= k)
+                {
+                    na = na - 1;
+                    k = k - entry.second;
                 }
+                // if (entry.second > maxFreq) {
+                //     maxFreq = entry.second;
+                // }
             }
-            cout << bs << endl;
+
+            cout << na << endl;
         }
     }
-}
-
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    codeN();
     return 0;
 }
