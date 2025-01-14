@@ -32,7 +32,7 @@ int main() {
 
     return 0;
 }*/
-#include <bits/stdc++.h>
+/*#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
@@ -63,5 +63,30 @@ int main() {
     cout << c << endl;
 
     return 0;
+}*/
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    vector<int>va(n);
+    vector<int>vb(n);
+    for(int i=0;i<n;i++)cin>>va[i];
+    for(int i=0;i<n;i++)cin>>vb[i];
+
+    unordered_map<int,int>mp;
+    for(int i=0;i<n;i++) mp[vb[i]]=i;
+
+    int d=-1,c=0;
+
+    for(int i=0;i<n;i++){
+        if(mp[va[i]]<d){
+            c++;
+        }else{
+            d=mp[va[i]];
+        }
+    }
+    cout<<c<<endl;
 }
+
 
