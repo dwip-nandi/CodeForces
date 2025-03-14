@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+/*#include <bits/stdc++.h>
 using namespace std;
 
 int segments[] = {6, 2, 5, 5, 4, 5, 6, 3, 7, 6};
@@ -21,4 +21,21 @@ int main() {
     }
     cout << total_segments << endl;
     return 0;
+}
+*/
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int a,b;
+    cin>>a>>b;
+    int c=0;
+    int arr[]={6,2,5,5,4,5,6,3,7,6};
+    for(int i=a;i<=b;i++){
+        int n=i;
+        while(n>0){
+            c += arr[n%10];
+            n = n/10;
+        }
+    }
+    cout<<c<<endl;
 }
