@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int t;
+    cin >> t; 
+    while (t--) {
+        int n;
+        char c;
+        cin >> n >> c;
+        string s;
+        cin >> s;
+
+        s += s; 
+        int mx = 0, lg = -1;
+        for (int i = 2 * n - 1; i >= 0; --i) {
+            if (s[i] == 'g') {
+                lg = i; 
+            }
+            if (s[i] == c && lg != -1) {
+                mx = max(mx, lg - i);
+            }
+        }
+        cout << mx << endl;
+    }
+
+    return 0;
+}
