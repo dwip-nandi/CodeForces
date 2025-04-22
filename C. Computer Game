@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long k,n,a,b;
+        cin>>k>>n>>a>>b;
+        if(n*b>=k)cout<<-1<<endl;
+        else{
+            long long r=n,l=0,result=-1;
+            while(r>=l){
+                int m=(l+r)/2;
+                int ll=n-m;
+                if((a*m + ll*b)<k){
+                    l=m+1;
+                    result=m;
+                }else{
+                    r=m-1;
+                }
+            }
+            cout<<result<<endl;
+        }
+    }
+}
