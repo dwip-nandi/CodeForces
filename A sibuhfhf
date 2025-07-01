@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+using namespace std ;
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        string w;
+        cin >> w;
+        string r = w.substr(0, w.length() - 2);
+        cout << r<< "i"<<endl;
+    }
+    return 0;
+}
+
