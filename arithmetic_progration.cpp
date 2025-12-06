@@ -71,7 +71,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 const double di=1e-9;
-
+// arithmatic progration
 void solve(){
     int n;
     cin>>n;
