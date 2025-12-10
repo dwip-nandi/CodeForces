@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n, x;
+        cin >> n >> x;
+        int odd = 0, even = 0;
+
+        for (int i = 0; i < n; i++) {
+            int k;
+            cin >> k;
+            if (k % 2) odd++;
+            else even++;
+        }
+
+        bool is= false;
+        if (odd > 0) {
+            if (x == n) {
+                if (odd % 2 == 1) is = true;
+            } else {
+                for (int takeOdd = 1; takeOdd <= odd && takeOdd <= x; takeOdd += 2) {
+                    int needEven = x - takeOdd;
+                    if (needEven <= even) {
+                        is= true;
+                        break;
+                    }
+                }
+            }
+        }
+        if(is)cout << "YES" << endl;
+        else cout << "NO"<<endl;
+    }
+}
