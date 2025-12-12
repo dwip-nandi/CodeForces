@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+  int t; cin>>t;
+  while (t--){
+      int n;
+      cin >> n;
+      int c=0,ma=0;
+      for(int i=0;i<n;i++){
+          int x; cin>>x;
+          if(i==0){
+             ma=x;
+             continue;
+          }
+          if(x<ma)c++;
+          if(x>ma)ma=x;
+      }
+      cout<<c<<endl;
+  }
+}
