@@ -8,17 +8,11 @@ using namespace std;
 
 void query()
 {
-    int x, y, k;
-    cin >> x >> y >> k;
-    int ts = k * y + k;
-    
-    int tsn = ts - 1;
-    
-    int st = (tsn + (x - 2)) / (x - 1);
-    
-    int ans = st + k;
-    
-    cout << ans << endl;
+    int x,y,k;
+    cin>>x>>y>>k;
+    int ts = (k*(y+1))-1;
+    int tsn = (ts+(x-2))/(x-1);
+    cout<<k+tsn<<endl;
 }
 
 signed main()
